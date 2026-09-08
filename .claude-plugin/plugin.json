@@ -1,0 +1,29 @@
+{
+  "name": "ttt-world-builder",
+  "displayName": "T&T World Builder",
+  "version": "0.1.0",
+  "description": "Tales & Tokens の world のイベント・アイテム・画像を Claude Code から構築します。ttt-builder MCP サーバーと、その 2 段階作成フロー・全置換の落とし穴・画像アップロード規約を押さえたスキルを同梱しています。",
+  "author": {
+    "name": "Tales & Tokens",
+    "url": "https://ttt.games"
+  },
+  "homepage": "https://github.com/TalesAndTokens/world-builder-agent-playbook",
+  "repository": "https://github.com/TalesAndTokens/world-builder-agent-playbook",
+  "keywords": [
+    "tales-and-tokens",
+    "world-building",
+    "mcp",
+    "game",
+    "cms"
+  ],
+  "skills": "./.claude/skills/",
+  "mcpServers": {
+    "ttt-builder": {
+      "type": "http",
+      "url": "https://builder-api.ttt.games/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TTT_WORLD_API_KEY}"
+      }
+    }
+  }
+}
