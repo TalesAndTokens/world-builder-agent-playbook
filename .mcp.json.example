@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ttt-builder": {
+      "type": "http",
+      "url": "https://builder-api.ttt.games/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TTT_WORLD_API_KEY}"
+      }
+    }
+  }
+}
