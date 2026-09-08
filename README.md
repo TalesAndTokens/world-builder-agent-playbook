@@ -37,7 +37,7 @@ Claude Code で次の 2 コマンドを実行します。
 
 ```
 /plugin marketplace add TalesAndTokens/world-builder-agent-playbook
-/plugin install ttt-world-builder@tales-and-tokens
+/plugin install world-builder@tales-and-tokens
 ```
 
 インストールすると以下がまとめて有効になります。
@@ -56,7 +56,7 @@ Claude Code で次の 2 コマンドを実行します。
 | パス | 内容 |
 | --- | --- |
 | `.claude-plugin/marketplace.json` | マーケットプレイス定義(`tales-and-tokens`) |
-| `.claude-plugin/plugin.json` | プラグイン定義(`ttt-world-builder`)。MCP サーバーとスキルのパスを宣言 |
+| `.claude-plugin/plugin.json` | プラグイン定義(`world-builder`)。MCP サーバーとスキルのパスを宣言 |
 | `.claude/skills/ttt-world-building/` | イベント・アイテムを MCP で操作するためのスキル |
 | `.claude/skills/ttt-images/` | 画像アップロード用スキル |
 | `docs/tools-reference.md` | 提供される全 17 ツールのリファレンス |
