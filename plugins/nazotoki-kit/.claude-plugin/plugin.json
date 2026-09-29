@@ -1,0 +1,11 @@
+{
+  "name": "nazotoki-kit",
+  "displayName": "T&T 謎解き制作キット",
+  "version": "0.1.0",
+  "description": "Tales & Tokens の world で、謎解き・クイズラリー・周遊イベントを作ります。受付で回答券を配り、選択肢を選ばせ、正解に印を与える構成を一括生成し、公開前に配線を検証します。world の基本操作は world-builder プラグインの ttt-world-building スキルに任せ、このプラグインは謎解き固有の層だけを持ちます。",
+  "author": { "name": "Tales & Tokens", "url": "https://ttt.games" },
+  "homepage": "https://github.com/TalesAndTokens/nazotoki-kit",
+  "repository": "https://github.com/TalesAndTokens/nazotoki-kit",
+  "keywords": ["tales-and-tokens", "nazotoki", "quiz", "rally", "event", "mcp"],
+  "skills": "./.claude/skills/"
+}

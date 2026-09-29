@@ -1,0 +1,41 @@
+{
+  "name": "plain",
+  "ticket": {
+    "ja": {
+      "name": "回答券",
+      "description": "1問に答えるたびに1枚使う。受付で受け取れる。"
+    },
+    "en": {
+      "name": "Answer Ticket",
+      "description": "Spend one each time you answer a question. You receive them at registration."
+    },
+    "image": null
+  },
+  "mark": {
+    "ja": {
+      "name": "正解の印",
+      "description": "正解すると1つもらえる。"
+    },
+    "en": {
+      "name": "Mark",
+      "description": "You get one for each correct answer."
+    },
+    "image": null
+  },
+  "messages": {
+    "ja": {
+      "registered": "回答券を受け取りました。はじめましょう！",
+      "correct": "正解です！ 正解の印を手に入れました。",
+      "wrong": "不正解です。回答券が残っていれば、ほかの選択肢で再挑戦できます。",
+      "submitLabel": "回答する",
+      "backLabel": "解答ページに戻る"
+    },
+    "en": {
+      "registered": "You have received your Answer Tickets. Let's begin!",
+      "correct": "Correct! You have obtained a Mark.",
+      "wrong": "That's incorrect. If you have Answer Tickets left, you can try another choice.",
+      "submitLabel": "Answer",
+      "backLabel": "Return to the answer page."
+    }
+  }
+}
