@@ -1,0 +1,19 @@
+{
+  "name": "world-builder",
+  "version": "0.1.0",
+  "description": "Tales & Tokens の world のイベント・アイテム・画像を Codex から構築します。ttt-builder MCP サーバーと、その 2 段階作成フロー・全置換の落とし穴・画像アップロード規約を押さえたスキルを同梱しています。",
+  "keywords": [
+    "tales-and-tokens",
+    "world-building",
+    "mcp",
+    "game",
+    "cms"
+  ],
+  "mcpServers": {
+    "ttt-builder": {
+      "type": "http",
+      "url": "https://builder-api.ttt.games/mcp",
+      "bearer_token_env_var": "TTT_WORLD_API_KEY"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 # world-builder-agent-playbook
 
-Tales & Tokens の Builder API が公開する MCP サーバー(`ttt-builder-mcp`)を Claude Code から利用するためのプレイブックです。world のイベント・アイテム・画像を、エージェントとの対話で構築できます。
+Tales & Tokens の Builder API が公開する MCP サーバー(`ttt-builder-mcp`)を Claude Code / Codex から利用するためのプレイブックです。world のイベント・アイテム・画像を、エージェントとの対話で構築できます。
 
-Claude Code プラグインとして配布しているので、`/plugin` コマンドで MCP サーバー設定と専用スキルをまとめて導入できます。
+Claude Code と Codex のプラグインとして配布しているので、MCP サーバー設定と専用スキルをまとめて導入できます。スキルは [Agent Skills](https://agentskills.io) 標準の形式(`skills/<name>/SKILL.md`)で、どちらのプラグインも同じ `skills/` を読み込みます。
 
 ## 前提: world スコープ API キー
 
@@ -51,12 +51,22 @@ Claude Code で次の 2 コマンドを実行します。
 
 > この world のイベントを一覧して
 
+### Codex で使う場合
+
+API キーの環境変数(手順 1)は共通です。マーケットプレイスを追加し、Codex CLI の `/plugins` から `world-builder` をインストールします。
+
+```bash
+codex plugin marketplace add TalesAndTokens/world-builder-agent-playbook
+```
+
 ## リポジトリ構成
 
 | パス | 内容 |
 | --- | --- |
-| `.claude-plugin/marketplace.json` | マーケットプレイス定義(`tales-and-tokens`) |
-| `.claude-plugin/plugin.json` | プラグイン定義(`world-builder`)。MCP サーバーを宣言(スキルは既定の `skills/` から自動で読み込まれる) |
+| `.claude-plugin/marketplace.json` | Claude Code 用マーケットプレイス定義(`tales-and-tokens`) |
+| `.claude-plugin/plugin.json` | Claude Code 用プラグイン定義(`world-builder`)。MCP サーバーを宣言(スキルは既定の `skills/` から自動で読み込まれる) |
+| `.agents/plugins/marketplace.json` | Codex 用マーケットプレイス定義(`tales-and-tokens`) |
+| `.codex-plugin/plugin.json` | Codex 用プラグイン定義(`world-builder`)。MCP サーバーを宣言(スキルは既定の `skills/` から自動で読み込まれる) |
 | `skills/ttt-world-building/` | イベント・アイテムを MCP で操作するためのスキル |
 | `skills/ttt-images/` | 画像アップロード用スキル |
 | `docs/tools-reference.md` | 提供される全 17 ツールのリファレンス |
