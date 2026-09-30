@@ -1,0 +1,19 @@
+{
+  "title": "サンプル ○×クイズ 2026",
+  "flavor": "plain",
+
+  "_comment": "無料枠に収まる構成。受付1 + 4問×2択8 = 9件（上限10件）。",
+
+  "worldId": null,
+  "choiceLabels": ["○", "×"],
+
+  "period": { "start": null, "end": "2027-03-31" },
+  "answerPageUrl": null,
+
+  "questions": [
+    { "correct": "○", "note": { "ja": "ここに正解したときに出す解説を書きます。その土地のことを1〜3文で。" } },
+    { "correct": "×", "note": { "ja": "問題文と選択肢の文言はこのファイルに書きません。ヒントが漏れるためです。" } },
+    { "correct": "○", "note": { "ja": "必要なのは、正解が ○ か × かという情報だけです。" } },
+    { "correct": "○", "note": { "ja": "英語版が要るときは note に en を足します。省略できます。" } }
+  ]
+}
