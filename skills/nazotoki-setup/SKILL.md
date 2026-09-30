@@ -20,7 +20,7 @@ description: flavor.json と event.json から、T&T World Builder の world に
 | `flavor.json` | 回答券と印の名前・文言 | 使い回す |
 | `event.json` | 正解表・解説・期間・画像 | 開催ごとに作る |
 
-形式の詳細は `nazotoki` スキルに同梱の `references/data-format.md`（`../nazotoki/references/data-format.md`）。ひな形は同じく `../nazotoki/assets/` にある。**どちらにも問題文と選択肢の文言は入れない。**
+形式の詳細（データ形式リファレンス）とひな形は `nazotoki` スキルに同梱している。未読なら先に `nazotoki` スキルを読み込み、そこから参照する。**どちらにも問題文と選択肢の文言は入れない。**
 それ自体がヒントになるため、必要なのは「正解がどれか」だけ。
 
 ## 書き込む前に必ず確認する
