@@ -16,7 +16,6 @@
     "game",
     "cms"
   ],
-  "skills": "./.claude/skills/",
   "mcpServers": {
     "ttt-builder": {
       "type": "http",

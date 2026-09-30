@@ -12,7 +12,7 @@ Tales & Tokens Builder API の `POST /mcp` が公開する全 17 ツールの一
 | `update_event` | `eventId`, `body`(全フィールド任意・部分更新) | `{ ok: true }` |
 | `delete_event` | `eventId` | `{ ok: true }` |
 
-`update_event` の `body` の詳細と注意点(アイテム関連の全置換挙動)は [ttt-world-building スキル](../.claude/skills/ttt-world-building/SKILL.md) を参照。
+`update_event` の `body` の詳細と注意点(アイテム関連の全置換挙動)は [ttt-world-building スキル](../skills/ttt-world-building/SKILL.md) を参照。
 
 ## アイテム
 
@@ -26,7 +26,7 @@ Tales & Tokens Builder API の `POST /mcp` が公開する全 17 ツールの一
 | `set_item_order` | `orderedItemIds`(1〜500 件), `startIndex?`(既定 1) | `{ ok: true, orders: [{ itemId, uiIndex }] }` |
 | `reset_item_order` | `itemIds?`(省略時は world 内全アイテム) | `{ ok: true }` |
 
-表示順(`uiIndex`)が効くのは Play App のインベントリのみで、`list_items` の返却順は常に id 降順です。部分指定の注意点は [ttt-world-building スキル](../.claude/skills/ttt-world-building/SKILL.md) を参照。
+表示順(`uiIndex`)が効くのは Play App のインベントリのみで、`list_items` の返却順は常に id 降順です。部分指定の注意点は [ttt-world-building スキル](../skills/ttt-world-building/SKILL.md) を参照。
 
 ## 装備スロット
 
@@ -45,7 +45,7 @@ Tales & Tokens Builder API の `POST /mcp` が公開する全 17 ツールの一
 | `delete_image` | `imageId`(S3 実体ごと削除) | `{ ok: true }` |
 | `get_image` | `imageId` | 画像の実体(インライン画像ブロック) |
 
-画像には list ツールがありません。`create_image` の返す id をその場で紐付けてください([ttt-images スキル](../.claude/skills/ttt-images/SKILL.md) 参照)。
+画像には list ツールがありません。`create_image` の返す id をその場で紐付けてください([ttt-images スキル](../skills/ttt-images/SKILL.md) 参照)。
 
 `get_image` は画像の**ピクセルそのもの**を返すため、vision 対応クライアント(Claude Code / Claude Desktop 等)からのみ呼びます。非対応クライアントでは巨大な base64 テキストとしてコンテキストを圧迫するので、`list_items` / `get_item` / `list_events` / `get_event` が返す `imageUrl` / `iconUrl` / `eventImageUrl` を読むこと。インラインサイズ上限を超える画像は URL がテキストで返ります。
 

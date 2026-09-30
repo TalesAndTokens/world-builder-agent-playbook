@@ -56,9 +56,9 @@ Claude Code で次の 2 コマンドを実行します。
 | パス | 内容 |
 | --- | --- |
 | `.claude-plugin/marketplace.json` | マーケットプレイス定義(`tales-and-tokens`) |
-| `.claude-plugin/plugin.json` | プラグイン定義(`world-builder`)。MCP サーバーとスキルのパスを宣言 |
-| `.claude/skills/ttt-world-building/` | イベント・アイテムを MCP で操作するためのスキル |
-| `.claude/skills/ttt-images/` | 画像アップロード用スキル |
+| `.claude-plugin/plugin.json` | プラグイン定義(`world-builder`)。MCP サーバーを宣言(スキルは既定の `skills/` から自動で読み込まれる) |
+| `skills/ttt-world-building/` | イベント・アイテムを MCP で操作するためのスキル |
+| `skills/ttt-images/` | 画像アップロード用スキル |
 | `docs/tools-reference.md` | 提供される全 17 ツールのリファレンス |
 | `.mcp.json.example` | プラグインを使わず手動設定する場合のひな形 |
 
@@ -71,6 +71,8 @@ cp .mcp.json.example .mcp.json
 ```
 
 `TTT_WORLD_API_KEY` を設定した状態で `claude` を起動し、プロジェクトスコープの MCP サーバー(`ttt-builder`)の使用を承認してください。
+
+この方法ではスキルは読み込まれません。スキルも使う場合はプラグインを導入してください。
 
 MCP Inspector から直接叩くこともできます。
 
