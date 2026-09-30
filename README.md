@@ -69,6 +69,25 @@ API キーの環境変数(手順 1)は共通です。マーケットプレイス
 codex plugin marketplace add TalesAndTokens/world-builder-agent-playbook
 ```
 
+### skills.sh(`npx skills`)で使う場合
+
+[skills.sh](https://skills.sh) の CLI でも、このリポジトリのスキルを導入できます。スキル同士が連携する(例: `nazotoki-setup` は `nazotoki` のデータ形式とひな形を使う)ため、**個別に選ばず `--skill '*'` で一式まとめて入れてください**。
+
+```bash
+npx skills add TalesAndTokens/world-builder-agent-playbook --skill '*'
+```
+
+導入先のエージェントは対話で選びます。決まっている場合は `-a claude-code` / `-a codex` のように指定できます(ユーザー全体に入れる場合は `-g`)。
+
+この方法で入るのはスキルだけで、**MCP サーバーの設定は含まれません**。API キーの環境変数(手順 1)を設定したうえで、MCP サーバーを別途登録してください。
+
+- Claude Code: [プラグインを使わずに設定する](#プラグインを使わずに設定する) の `.mcp.json` を用意する
+- Codex: 次のコマンドで登録する
+
+```bash
+codex mcp add ttt-builder --url https://builder-api.ttt.games/mcp --bearer-token-env-var TTT_WORLD_API_KEY
+```
+
 ## リポジトリ構成
 
 | パス | 内容 |
@@ -95,7 +114,7 @@ cp .mcp.json.example .mcp.json
 
 `TTT_WORLD_API_KEY` を設定した状態で `claude` を起動し、プロジェクトスコープの MCP サーバー(`ttt-builder`)の使用を承認してください。
 
-この方法ではスキルは読み込まれません。スキルも使う場合はプラグインを導入してください。
+この方法ではスキルは読み込まれません。スキルも使う場合はプラグインを導入するか、[skills.sh](#skillsshnpx-skillsで使う場合) で一式を導入してください。
 
 MCP Inspector から直接叩くこともできます。
 
