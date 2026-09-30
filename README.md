@@ -4,6 +4,16 @@ Tales & Tokens の Builder API が公開する MCP サーバー(`ttt-builder-mcp
 
 Claude Code と Codex のプラグインとして配布しているので、MCP サーバー設定と専用スキルをまとめて導入できます。スキルは [Agent Skills](https://agentskills.io) 標準の形式(`skills/<name>/SKILL.md`)で、どちらのプラグインも同じ `skills/` を読み込みます。
 
+## スキルカタログ
+
+| スキル | 使う場面 |
+| --- | --- |
+| [ttt-world-building](skills/ttt-world-building/SKILL.md) | イベント・アイテムの作成・更新・削除・並び替え。create → update の 2 段階フロー、`update_event` のアイテム関連が「全置換」である点などの落とし穴、ページネーション規約 |
+| [ttt-images](skills/ttt-images/SKILL.md) | 画像のアップロード・差し替え・削除。dataUri の形式・5MB 制限、画像には一覧/取得ツールがないため作成した id を即座に紐付ける運用 |
+| [nazotoki](skills/nazotoki/SKILL.md) | 謎解き・クイズラリー・○×クイズ・スタンプラリーを企画するときに最初に読む。回答券と正解の印による仕組み、問題数・選択肢数と無料枠に収める件数計算、作問の注意点、人間がやる現地作業 |
+| [nazotoki-setup](skills/nazotoki-setup/SKILL.md) | `flavor.json` と `event.json` から、world に謎解きの構成(回答券・正解の印・受付イベント・回答イベント群)を一括生成する。書き込み前の world 照合と件数見積もりを含む |
+| [nazotoki-check](skills/nazotoki-check/SKILL.md) | 作成済みの謎解き world を公開前に検証する。正解の印の数、不正解イベントの配線、回答券の枚数、開催期間を確認する |
+
 ## 前提: world スコープ API キー
 
 MCP サーバーは world 単位の API キーで認証します。操作対象の world はキーから決まるため、ツール呼び出しで worldId を指定することはありません。
@@ -43,7 +53,7 @@ Claude Code で次の 2 コマンドを実行します。
 インストールすると以下がまとめて有効になります。
 
 - MCP サーバー `ttt-builder`(接続先・認証ヘッダーの設定込み)
-- スキル `ttt-world-building` / `ttt-images`
+- [スキルカタログ](#スキルカタログ)のスキル一式
 
 ### 3. 確認する
 
@@ -69,6 +79,9 @@ codex plugin marketplace add TalesAndTokens/world-builder-agent-playbook
 | `.codex-plugin/plugin.json` | Codex 用プラグイン定義(`world-builder`)。MCP サーバーを宣言(スキルは既定の `skills/` から自動で読み込まれる) |
 | `skills/ttt-world-building/` | イベント・アイテムを MCP で操作するためのスキル |
 | `skills/ttt-images/` | 画像アップロード用スキル |
+| `skills/nazotoki/` | 謎解きの企画用スキル(データ形式リファレンスとひな形を同梱) |
+| `skills/nazotoki-setup/` | 謎解き構成の一括生成スキル |
+| `skills/nazotoki-check/` | 謎解き world の公開前検証スキル |
 | `docs/tools-reference.md` | 提供される全 17 ツールのリファレンス |
 | `.mcp.json.example` | プラグインを使わず手動設定する場合のひな形 |
 
@@ -92,11 +105,6 @@ npx @modelcontextprotocol/inspector
 # URL: https://builder-api.ttt.games/mcp
 # ヘッダー: Authorization: Bearer <key>
 ```
-
-## スキル
-
-- **ttt-world-building** — イベント・アイテムの作成/更新の 2 段階フロー、`update_event` のアイテム関連が「全置換」である点などの落とし穴、ページネーション規約
-- **ttt-images** — 画像アップロードの形式・サイズ制限、画像には一覧/取得ツールがないため作成した id を即座に紐付ける運用
 
 ## 画像アップロードのヒント
 
